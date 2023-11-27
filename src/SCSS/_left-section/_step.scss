@@ -1,0 +1,27 @@
+$marine-blue: hsl(231, 96%, 18%);
+$light-blue: hsl(206, 94%, 87%);
+$pastel-blue: hsl(228, 100%, 84%);
+
+.h-33px {
+  height: 33px !important;
+}
+
+.w-33px {
+  width: 33px !important;
+}
+
+.bg-pastel-blue {
+  background: $pastel-blue !important;
+}
+
+.text-marine-blue {
+  color: $marine-blue !important;
+}
+
+.text-light-blue {
+  color: $light-blue !important;
+}
+
+.mb-32px {
+  margin-bottom: 32px !important;
+}

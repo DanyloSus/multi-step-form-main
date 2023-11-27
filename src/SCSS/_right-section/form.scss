@@ -1,0 +1,46 @@
+$marine-blue: hsl(231, 96%, 18%);
+$cool-gray: hsl(231, 11%, 63%);
+
+.form-label,
+legend {
+  color: $marine-blue !important;
+}
+
+legend {
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+
+.form-control {
+  height: 3rem;
+}
+
+.form-label {
+  margin-top: 1.5rem;
+
+  font-weight: 500;
+}
+
+.btn,
+.btn-outline {
+  height: 3rem;
+  width: 7.6875rem;
+}
+
+.btn {
+  border: 0 !important;
+
+  background-color: $marine-blue !important;
+
+  color: white !important;
+}
+
+.btn-outline {
+  color: $cool-gray;
+
+  background-color: transparent;
+
+  border: 0;
+
+  text-align: left;
+}
