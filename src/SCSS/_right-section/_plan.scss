@@ -1,0 +1,37 @@
+$magnolia: hsl(217, 100%, 97%);
+$cool-gray: hsl(231, 11%, 63%);
+$purplish-blue: hsl(243, 100%, 62%);
+$marine-blue: hsl(231, 96%, 18%);
+$alabaster: hsl(231, 100%, 99%);
+
+.h-40px {
+  height: 40px;
+}
+
+.w-40px {
+  width: 40px;
+}
+
+.bg-magnolia {
+  background-color: $magnolia;
+}
+
+.text-marine-blue {
+  color: $marine-blue !important;
+}
+
+.text-cool-gray {
+  color: $cool-gray;
+}
+
+.border-purplish-blue {
+  border: 1px solid $purplish-blue !important;
+}
+
+.bg-alabaster {
+  background-color: $alabaster;
+}
+
+.col-35 {
+  width: 29.16666666% !important;
+}

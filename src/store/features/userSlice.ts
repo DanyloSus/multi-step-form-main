@@ -15,13 +15,18 @@ export interface Info {
   phoneNumber: string | null;
 }
 
+export interface Plan {
+  plan: number | null;
+  isYear: boolean | null;
+}
+
 const initialState: User = {
   name: localStorage.getItem("name") ? localStorage.getItem("name") : "",
   email: localStorage.getItem("email") ? localStorage.getItem("email") : "",
   phoneNumber: localStorage.getItem("phoneNumber")
     ? localStorage.getItem("phoneNumber")
     : "",
-  plan: localStorage.getItem("plan") ? Number(localStorage.getItem("plan")) : 0,
+  plan: localStorage.getItem("plan") ? Number(localStorage.getItem("plan")) : 1,
   isYear: localStorage.getItem("isYear")
     ? Boolean(localStorage.getItem("isYear"))
     : false,
@@ -40,9 +45,11 @@ const userSlice = createSlice({
       localStorage.setItem("email", String(action.payload.email));
       localStorage.setItem("phoneNumber", String(action.payload.phoneNumber));
     },
-    setPlan(state, action: PayloadAction<number>) {
-      state.plan = action.payload;
-      localStorage.setItem("plan", String(action.payload));
+    setPlan(state, action: PayloadAction<Plan>) {
+      state.plan = action.payload.plan;
+      state.isYear = action.payload.isYear;
+      localStorage.setItem("plan", String(action.payload.plan));
+      localStorage.setItem("isYear", String(action.payload.isYear));
     },
   },
 });

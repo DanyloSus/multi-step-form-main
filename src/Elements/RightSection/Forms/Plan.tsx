@@ -1,23 +1,29 @@
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  Info as InfoInterface,
-  setInfo,
+  Plan as PlanInterface,
+  setPlan,
 } from "../../../store/features/userSlice";
 import { nextStep, backStep } from "../../../store/features/stepSlice";
 import * as Yup from "yup";
+import { Store } from "../../../store/store";
+import Check from "./Plan/Check";
+import { useState } from "react";
 
 const Plan = () => {
+  const user = useSelector((state: Store) => state.user);
+
+  const [planID, setPlanID] = useState(Number(user.plan));
+  const [isYear, setIsYear] = useState(Boolean(user.isYear));
+
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
+      plan: planID,
+      isYear: isYear,
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
-      email: Yup.string().email("Invalid Email").required("Required"),
-      phoneNumber: Yup.string().required("Required"),
+      plan: Yup.number(),
+      isYear: Yup.boolean(),
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -28,8 +34,8 @@ const Plan = () => {
 
   const dispatch = useDispatch();
 
-  const handleChange = (values: InfoInterface) => {
-    dispatch(setInfo(values));
+  const handleChange = (values: PlanInterface) => {
+    dispatch(setPlan(values));
   };
 
   const nextStepDispatch = () => {
@@ -40,8 +46,65 @@ const Plan = () => {
     dispatch(backStep());
   };
 
+  const handleChangeID = (id: number) => {
+    setPlanID(id);
+    console.log(id);
+    formik.values.plan = id;
+  };
+
   return (
     <form onSubmit={formik.handleSubmit} className="d-flex flex-column h-100">
+      <div className="content mt-4">
+        <div className="row row-cols-3 flex-nowrap justify-content-between">
+          <Check
+            img="icon-arcade.svg"
+            name="Arcade"
+            monthPrice={9}
+            isYear={isYear}
+            isSelected={planID === 1}
+            onClick={() => {
+              handleChangeID(1);
+            }}
+          />
+          <Check
+            img="icon-advanced.svg"
+            name="Advanced"
+            monthPrice={12}
+            isYear={isYear}
+            isSelected={planID === 2}
+            onClick={() => {
+              handleChangeID(2);
+            }}
+          />
+          <Check
+            img="icon-pro.svg"
+            name="Pro"
+            monthPrice={15}
+            isYear={isYear}
+            isSelected={planID === 3}
+            onClick={() => {
+              handleChangeID(3);
+            }}
+          />
+        </div>
+      </div>
+      <div className="mt-4 bg-magnolia d-flex gap-4 w-100 fw-bold justify-content-center align-items-center rounded-3 py-2">
+        <p className={(isYear && "text-cool-gray") + " m-0"}>Monthly</p>
+        <div className="form-check form-switch m-0">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            checked={isYear}
+            onChange={(e) => {
+              setIsYear(e.target.checked);
+              formik.values.isYear = e.target.checked;
+            }}
+          />
+        </div>
+        <p className={(!isYear && "text-cool-gray") + " m-0"}>Yearly</p>
+      </div>
       <div className="d-flex mt-auto">
         <button
           className="btn-outline"
