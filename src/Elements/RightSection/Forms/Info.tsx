@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Info as InfoInterface,
   setInfo,
@@ -7,18 +7,23 @@ import {
 import { nextStep } from "../../../store/features/stepSlice";
 import * as Yup from "yup";
 import Input from "./Info/Input";
+import { Store } from "../../../store/store";
 
 const Info = () => {
+  const user = useSelector((state: Store) => state.user);
+
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
+      name: String(user.name),
+      email: String(user.email),
+      phoneNumber: String(user.phoneNumber),
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
       email: Yup.string().email("Invalid Email").required("Required"),
-      phoneNumber: Yup.string().required("Required"),
+      phoneNumber: Yup.string()
+        .matches(/^[0-9]+$/, "Must be a number")
+        .required("Required"),
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -69,7 +74,7 @@ const Info = () => {
         onChange={formik.handleChange}
         value={formik.values.phoneNumber}
       />
-      <div className="d-flex mt-5">
+      <div className="d-flex mt-auto">
         <button className="btn ms-auto" type="submit">
           Next Step
         </button>
