@@ -1,39 +1,20 @@
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import {
-  Info as InfoInterface,
-  setInfo,
-} from "../../../store/features/userSlice";
-import { nextStep, backStep } from "../../../store/features/stepSlice";
-import * as Yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { backStep } from "../../../store/features/stepSlice";
+import { Store } from "../../../store/store";
+import Check from "./Summary/Check";
 
-const Summary = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
-      email: Yup.string().email("Invalid Email").required("Required"),
-      phoneNumber: Yup.string().required("Required"),
-    }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      handleChange(values);
-      nextStepDispatch();
-    },
-  });
+interface Props {
+  setIsConfirmed: (arg0: boolean) => void;
+}
+
+const Summary = (props: Props) => {
+  const user = useSelector((state: Store) => state.user);
 
   const dispatch = useDispatch();
 
-  const handleChange = (values: InfoInterface) => {
-    dispatch(setInfo(values));
-  };
-
-  const nextStepDispatch = () => {
-    dispatch(nextStep());
+  const setStep = () => {
+    backStepDispatch();
+    backStepDispatch();
   };
 
   const backStepDispatch = () => {
@@ -41,7 +22,61 @@ const Summary = () => {
   };
 
   return (
-    <form onSubmit={formik.handleSubmit} className="d-flex flex-column h-100">
+    <div className="d-flex flex-column h-100">
+      <div className="d-flex flex-column gap-3 mt-4 w-100 bg-magnolia rounded-2 p-3">
+        <div className="w-100 d-flex align-items-center">
+          <div className="me-auto">
+            <h5 className="m-0 text-marine-blue fw-bold">
+              {user.plan == 1 ? "Arcade" : user.plan == 2 ? "Advanced" : "Pro"}
+            </h5>
+            <a href="#" className="text-cool-gray m-0" onClick={setStep}>
+              Change
+            </a>
+          </div>
+          <p className="m-0 text-marine-blue fw-bold">
+            $
+            {user.isYear &&
+              `${
+                user.plan == 1 ? 9 * 10 : user.plan == 2 ? 12 * 10 : 15 * 10
+              }/yr`}
+            {!user.isYear &&
+              `${user.plan == 1 ? 9 : user.plan == 2 ? 12 : 15}/mo`}
+          </p>
+        </div>
+        <hr className="m-0" />
+        <Check
+          is={Boolean(user.addonF)}
+          name="Online service"
+          price={1}
+          isYear={Boolean(user.isYear)}
+        />
+        <Check
+          is={Boolean(user.addonS)}
+          name="Large storage"
+          price={2}
+          isYear={Boolean(user.isYear)}
+        />
+        <Check
+          is={Boolean(user.addonT)}
+          name="Customizable profile"
+          price={2}
+          isYear={Boolean(user.isYear)}
+        />
+      </div>
+      <div className="p-3 d-flex justify-content-between align-items-center">
+        <p className="text-cool-gray">
+          Total (per {user.isYear ? "year" : "month"})
+        </p>
+        <h5 className="text-purplish-blue fw-bold">
+          $
+          {((user.plan == 1 ? 9 : user.plan == 2 ? 12 : 15) +
+            (user.addonF ? 1 : 0) +
+            (user.addonS ? 2 : 0) +
+            (user.addonT ? 2 : 0)) *
+            (user.isYear ? 10 : 1)}
+          /{user.isYear ? "yr" : "mo"}
+        </h5>
+      </div>
       <div className="d-flex mt-auto">
         <button
           className="btn-outline"
@@ -50,11 +85,16 @@ const Summary = () => {
         >
           Back Step
         </button>
-        <button className="btn btn-purplish-blue ms-auto" type="submit">
-          Submit
+        <button
+          className="btn btn-purplish-blue ms-auto"
+          type="submit"
+          style={{ backgroundColor: "hsl(243, 100%, 62%)" }}
+          onClick={() => props.setIsConfirmed(true)}
+        >
+          Confirm
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 

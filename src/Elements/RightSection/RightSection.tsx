@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Form from "./Form";
 import Addon from "./Forms/Addon";
 import Info from "./Forms/Info";
@@ -5,7 +6,25 @@ import Plan from "./Forms/Plan";
 import Summary from "./Forms/Summary";
 
 const RightSection = () => {
-  return (
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
+  return isConfirmed ? (
+    <div className="h-100 w-100 d-flex align-items-center justify-content-center text-center flex-column">
+      <div className="w-450px">
+        <img
+          src="icon-thank-you.svg"
+          alt="Thank You icon"
+          className="w-80px h-80px"
+        />
+        <h3 className="fw-bold text-marine-blue">Thank You!</h3>
+        <p className="text-cool-gray">
+          Thanks for confirming your subscription! We hope you have fun using
+          our platform. If you ever need support, please feel free to email us
+          at support@loremgaming.com.
+        </p>
+      </div>
+    </div>
+  ) : (
     <div className="w-100 h-500px d-flex align-items-center justify-content-center">
       <Form
         legend="Personal info"
@@ -33,7 +52,7 @@ const RightSection = () => {
         step={4}
         formText="Double-check everything looks OK before confirming."
       >
-        <Summary />
+        <Summary setIsConfirmed={setIsConfirmed} />
       </Form>
     </div>
   );

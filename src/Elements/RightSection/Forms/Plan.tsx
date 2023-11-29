@@ -26,7 +26,6 @@ const Plan = () => {
       isYear: Yup.boolean(),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       handleChange(values);
       nextStepDispatch();
     },
@@ -48,7 +47,6 @@ const Plan = () => {
 
   const handleChangeID = (id: number) => {
     setPlanID(id);
-    console.log(id);
     formik.values.plan = id;
   };
 

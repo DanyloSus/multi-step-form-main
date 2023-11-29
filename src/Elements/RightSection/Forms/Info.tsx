@@ -26,7 +26,6 @@ const Info = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       handleChange(values);
       nextStepDispatch();
     },

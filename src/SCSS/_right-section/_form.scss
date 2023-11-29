@@ -32,9 +32,10 @@ legend {
 }
 
 .btn {
-  border: 0 !important;
+  $bs-btn-bg: hsl(231, 96%, 18%) !important;
+  background-color: $bs-btn-bg;
 
-  background-color: $marine-blue !important;
+  border: 0 !important;
 
   color: white !important;
 }

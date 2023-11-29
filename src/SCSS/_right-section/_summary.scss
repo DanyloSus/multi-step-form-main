@@ -1,5 +1,5 @@
 $purplish-blue: hsl(243, 100%, 62%);
 
-.btn-purplish-blue {
-  background-color: $purplish-blue;
+.btn-purplish-blue.btn {
+  background-color: $purplish-blue !important;
 }

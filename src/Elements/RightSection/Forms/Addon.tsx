@@ -26,7 +26,6 @@ const Addon = () => {
       addonT: Yup.boolean(),
     }),
     onSubmit: (values: Addons) => {
-      alert(JSON.stringify(values, null, 2));
       handleChange(values);
       nextStepDispatch();
     },
