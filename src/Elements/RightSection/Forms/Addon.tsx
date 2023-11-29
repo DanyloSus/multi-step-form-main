@@ -5,15 +5,20 @@ import { backStep, nextStep } from "../../../store/features/stepSlice";
 import * as Yup from "yup";
 import Check from "./Addon/Check";
 import { Store } from "../../../store/store";
+import { useState } from "react";
 
 const Addon = () => {
   const user = useSelector((state: Store) => state.user);
 
+  const [addonF, setAddonF] = useState(user.addonF);
+  const [addonS, setAddonS] = useState(user.addonS);
+  const [addonT, setAddonT] = useState(user.addonT);
+
   const formik = useFormik({
     initialValues: {
-      addonF: user.addonF,
-      addonS: user.addonS,
-      addonT: user.addonT,
+      addonF: addonF,
+      addonS: addonS,
+      addonT: addonT,
     },
     validationSchema: Yup.object({
       addonF: Yup.boolean(),
@@ -42,39 +47,42 @@ const Addon = () => {
   };
 
   const handleFChange = () => {
-    formik.values.addonF = !formik.values.addonF;
+    setAddonF(!addonF);
+    formik.values.addonF = !addonF;
   };
 
   const handleSChange = () => {
-    formik.values.addonS = !formik.values.addonS;
+    setAddonS(!addonS);
+    formik.values.addonS = !addonS;
   };
 
   const handleTChange = () => {
-    formik.values.addonT = !formik.values.addonT;
+    setAddonT(!addonT);
+    formik.values.addonT = !addonT;
   };
 
   return (
     <form onSubmit={formik.handleSubmit} className="d-flex flex-column h-100">
-      <div className="d-flex flex-column gap-3">
+      <div className="d-flex flex-column gap-3 pt-4">
         <Check
           main="Online service"
           description="Access to multiplayer games"
           price={1}
-          isChecked={Boolean(formik.values.addonF)}
+          isChecked={Boolean(addonF)}
           onChange={handleFChange}
         />
         <Check
           main="Larger storage"
           description="Extra 1TB of cloud save"
           price={2}
-          isChecked={Boolean(formik.values.addonS)}
+          isChecked={Boolean(addonS)}
           onChange={handleSChange}
         />
         <Check
           main="Customizable profile"
           description="Custom theme on your profile"
           price={2}
-          isChecked={Boolean(formik.values.addonT)}
+          isChecked={Boolean(addonT)}
           onChange={handleTChange}
         />
       </div>

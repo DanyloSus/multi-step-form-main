@@ -1,3 +1,13 @@
+$purplish-blue: hsl(243, 100%, 62%);
+
 .h-80px {
   height: 80px;
+}
+
+.text-purplish-blue {
+  color: $purplish-blue;
+}
+
+.form-check-input:checked.bg-purplish-blue {
+  background-color: $purplish-blue !important;
 }
