@@ -14,7 +14,7 @@ const Form = (props: Props) => {
 
   return (
     step == props.step && (
-      <div className="w-450px h-100 pt-5 pb-3">
+      <div className="w-450px h-100 pt-lg-5 pb-lg-3">
         <legend>{props.legend}</legend>
         <div>{props.formText}</div>
         {props.children}

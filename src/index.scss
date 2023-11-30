@@ -34,7 +34,7 @@ p {
   font-size: 1rem !important;
 }
 
-@media (min-width: 940px) {
+@media (min-width: 992px) {
   .h-lg-fullscreen {
     height: 100vh;
   }
@@ -42,4 +42,20 @@ p {
   .mw-940px {
     max-width: 940px;
   }
+
+  .mt-lg-0px {
+    margin-top: 0px !important;
+  }
+
+  .mb-lg-0px {
+    margin-bottom: 0px !important;
+  }
+}
+
+.mt-100px {
+  margin-top: 100px;
+}
+
+.mb-120px {
+  margin-bottom: 120px;
 }

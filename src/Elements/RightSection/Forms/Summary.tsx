@@ -77,7 +77,7 @@ const Summary = (props: Props) => {
           /{user.isYear ? "yr" : "mo"}
         </h5>
       </div>
-      <div className="d-flex mt-auto">
+      <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
         <button
           className="btn-outline"
           type="button"

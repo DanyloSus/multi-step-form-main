@@ -53,7 +53,7 @@ const Plan = () => {
   return (
     <form onSubmit={formik.handleSubmit} className="d-flex flex-column h-100">
       <div className="content mt-4">
-        <div className="row row-cols-3 flex-nowrap justify-content-between">
+        <div className="row row-cols-lg-3 flex-nowrap justify-content-between flex-column flex-lg-row gap-3">
           <Check
             img="icon-arcade.svg"
             name="Arcade"
@@ -103,7 +103,7 @@ const Plan = () => {
         </div>
         <p className={(!isYear && "text-cool-gray") + " m-0"}>Yearly</p>
       </div>
-      <div className="d-flex mt-auto">
+      <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
         <button
           className="btn-outline"
           type="button"

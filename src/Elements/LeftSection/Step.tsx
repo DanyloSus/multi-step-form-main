@@ -10,19 +10,19 @@ const Step = (props: Props) => {
   const step = useSelector((state: Store) => state.step);
 
   return (
-    <div className="container mb-32px">
+    <div className="container mb-32px d-flex d-lg-block justify-content-center align-items-center">
       <div className="row align-items-center">
         <div
           className={
             (step == props.stepNum
               ? "bg-pastel-blue text-marine-blue"
               : "text-white border border-white") +
-            " col-lg-1 rounded-circle w-33px h-33px d-flex align-items-center justify-center fw-bold"
+            " col-lg-1 rounded-circle w-33px h-33px d-flex align-items-center justify-center fw-bold text-center"
           }
         >
           {props.stepNum}
         </div>
-        <div className="col-lg-9 ms-2 p-0">
+        <div className="col-lg-9 ms-2 p-0 d-none d-lg-block">
           <div className="container p-0 w-100">
             <div className="row w-100">
               <div className="col text-light-blue">Step {props.stepNum}</div>

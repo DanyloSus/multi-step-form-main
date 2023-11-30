@@ -32,8 +32,10 @@ $alabaster: hsl(231, 100%, 99%);
   background-color: $alabaster;
 }
 
-.col-35 {
-  width: 29.16666666% !important;
+@media (min-width: 992px) {
+  .col-lg-35 {
+    width: 29.16666666% !important;
+  }
 }
 
 .form-switch .form-check-input {

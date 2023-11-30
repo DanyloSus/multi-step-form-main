@@ -73,7 +73,7 @@ const Info = () => {
         onChange={formik.handleChange}
         value={formik.values.phoneNumber}
       />
-      <div className="d-flex mt-auto">
+      <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
         <button className="btn ms-auto" type="submit">
           Next Step
         </button>

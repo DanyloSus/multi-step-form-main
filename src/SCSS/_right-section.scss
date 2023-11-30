@@ -4,7 +4,25 @@
   width: 450px;
 }
 
-.h-500px {
-  max-height: 500px;
-  height: 100%;
+@media (min-width: 992px) {
+  .h-lg-500px {
+    max-height: 500px;
+    height: 100%;
+  }
+
+  .w-lg-80px {
+    width: 80px !important;
+  }
+
+  .h-lg-80px {
+    height: 80px !important;
+  }
+}
+
+.w-56px {
+  width: 56px;
+}
+
+.h-56px {
+  height: 56px;
 }
