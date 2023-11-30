@@ -24,6 +24,10 @@ $alabaster: hsl(231, 100%, 99%);
   color: $cool-gray;
 }
 
+a.text-cool-gray:hover {
+  color: $purplish-blue;
+}
+
 .border-purplish-blue {
   border: 1px solid $purplish-blue !important;
 }

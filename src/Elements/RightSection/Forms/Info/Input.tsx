@@ -25,7 +25,8 @@ const Input = (props: InputProps) => {
       <input
         type={props.type}
         className={
-          (props.error && props.touched && "border-danger") + " form-control"
+          (props.error && props.touched && "border-danger") +
+          " form-control border-hover-purplish-blue"
         }
         id={props.id}
         placeholder={props.placeholder}

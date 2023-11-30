@@ -2,6 +2,7 @@
 @import "./plan";
 @import "./addon";
 
+$purplish-blue: hsl(243, 100%, 62%);
 $marine-blue: hsl(231, 96%, 18%);
 $cool-gray: hsl(231, 11%, 63%);
 
@@ -19,6 +20,12 @@ legend {
   height: 3rem;
 }
 
+.border-hover-purplish-blue {
+  &:hover {
+    border: $purplish-blue 1px solid !important;
+  }
+}
+
 .form-label {
   margin-top: 1.5rem;
 
@@ -29,6 +36,10 @@ legend {
 .btn-outline {
   height: 3rem;
   width: 7.6875rem;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 .btn {

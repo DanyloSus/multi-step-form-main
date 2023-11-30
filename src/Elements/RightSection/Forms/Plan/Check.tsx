@@ -13,7 +13,7 @@ const Check = (props: Props) => {
   return (
     <div
       className={
-        "col-lg-35 rounded-3 p-lg-3 p-2 d-flex d-lg-block gap-2 gap-lg-3 align-items-center " +
+        "col-lg-35 rounded-3 p-lg-3 p-2 d-flex d-lg-block gap-2 gap-lg-3 align-items-center pe-pointer border-hover-purplish-blue transition " +
         (props.isSelected ? "border-purplish-blue bg-alabaster" : "border")
       }
       onClick={props.onClick}

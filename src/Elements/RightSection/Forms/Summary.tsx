@@ -79,14 +79,14 @@ const Summary = (props: Props) => {
       </div>
       <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
         <button
-          className="btn-outline"
+          className="btn-outline transition"
           type="button"
           onClick={backStepDispatch}
         >
           Back Step
         </button>
         <button
-          className="btn btn-purplish-blue ms-auto"
+          className="btn btn-purplish-blue ms-auto transition"
           type="submit"
           style={{ backgroundColor: "hsl(243, 100%, 62%)" }}
           onClick={() => props.setIsConfirmed(true)}

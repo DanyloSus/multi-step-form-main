@@ -90,7 +90,7 @@ const Plan = () => {
         <p className={(isYear && "text-cool-gray") + " m-0"}>Monthly</p>
         <div className="form-check form-switch m-0">
           <input
-            className="form-check-input"
+            className="form-check-input pe-pointer"
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault"
@@ -105,13 +105,13 @@ const Plan = () => {
       </div>
       <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
         <button
-          className="btn-outline"
+          className="btn-outline transition"
           type="button"
           onClick={backStepDispatch}
         >
           Back Step
         </button>
-        <button className="btn ms-auto" type="submit">
+        <button className="btn ms-auto transition" type="submit">
           Next Step
         </button>
       </div>

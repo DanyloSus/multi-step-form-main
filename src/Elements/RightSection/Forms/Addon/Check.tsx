@@ -15,7 +15,7 @@ const Check = (props: Props) => {
   return (
     <div
       className={
-        "w-100 h-80px d-flex align-items-center rounded-2 px-3 gap-3 " +
+        "w-100 h-80px d-flex align-items-center rounded-2 px-3 gap-3 pe-pointer border-hover-purplish-blue " +
         (props.isChecked ? "border-purplish-blue bg-alabaster" : "border")
       }
       onClick={props.onChange}
@@ -24,7 +24,7 @@ const Check = (props: Props) => {
         type="checkbox"
         id={props.main}
         name="addons"
-        className="form-check-input bg-purplish-blue"
+        className="form-check-input bg-purplish-blue transition"
         checked={props.isChecked}
         onChange={props.onChange}
         style={{ width: "20px", height: "20px" }}
