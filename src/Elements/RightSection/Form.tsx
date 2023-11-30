@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Store } from "../../store/store";
 import { ReactNode } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {
   legend: string;
@@ -14,11 +15,18 @@ const Form = (props: Props) => {
 
   return (
     step == props.step && (
-      <div className="w-450px h-100 pt-lg-5 pb-lg-3">
-        <legend>{props.legend}</legend>
-        <div>{props.formText}</div>
-        {props.children}
-      </div>
+      <AnimatePresence>
+        <motion.div
+          className="w-450px h-100 pt-lg-5 pb-lg-3"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+        >
+          <legend>{props.legend}</legend>
+          <div>{props.formText}</div>
+          {props.children}
+        </motion.div>
+      </AnimatePresence>
     )
   );
 };

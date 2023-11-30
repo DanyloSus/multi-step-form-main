@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ChangeEventHandler } from "react";
 
 interface InputProps {
@@ -13,7 +14,7 @@ interface InputProps {
 
 const Input = (props: InputProps) => {
   return (
-    <div>
+    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }}>
       <div className="d-flex justify-content-between">
         <label htmlFor={props.id} className="form-label">
           {props.label}
@@ -33,7 +34,7 @@ const Input = (props: InputProps) => {
         onChange={props.onChange}
         value={props.value}
       />
-    </div>
+    </motion.div>
   );
 };
 

@@ -87,7 +87,9 @@ const Plan = () => {
         </div>
       </div>
       <div className="mt-4 bg-magnolia d-flex gap-4 w-100 fw-bold justify-content-center align-items-center rounded-3 py-2">
-        <p className={(isYear && "text-cool-gray") + " m-0"}>Monthly</p>
+        <p className={(isYear && "text-cool-gray") + " m-0 transition"}>
+          Monthly
+        </p>
         <div className="form-check form-switch m-0">
           <input
             className="form-check-input pe-pointer"
@@ -101,7 +103,9 @@ const Plan = () => {
             }}
           />
         </div>
-        <p className={(!isYear && "text-cool-gray") + " m-0"}>Yearly</p>
+        <p className={(!isYear && "text-cool-gray") + " m-0 transition"}>
+          Yearly
+        </p>
       </div>
       <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
         <button
