@@ -8,8 +8,6 @@ interface Props {
 }
 
 const Check = (props: Props) => {
-  console.log(props.isSelected);
-
   return (
     <div
       className={

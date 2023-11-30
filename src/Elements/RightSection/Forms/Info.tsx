@@ -8,6 +8,7 @@ import { nextStep } from "../../../store/features/stepSlice";
 import * as Yup from "yup";
 import Input from "./Info/Input";
 import { Store } from "../../../store/store";
+import { motion } from "framer-motion";
 
 const Info = () => {
   const user = useSelector((state: Store) => state.user);
@@ -73,11 +74,16 @@ const Info = () => {
         onChange={formik.handleChange}
         value={formik.values.phoneNumber}
       />
-      <div className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white">
+      <motion.div
+        className="d-flex w-100 position-lg-static position-xs-fixed bottom-0 right-0 mt-auto p-lg-0 p-3 bg-white"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.38 }}
+      >
         <button className="btn ms-auto transition" type="submit">
           Next Step
         </button>
-      </div>
+      </motion.div>
     </form>
   );
 };

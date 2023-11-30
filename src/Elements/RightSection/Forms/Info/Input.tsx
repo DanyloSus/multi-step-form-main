@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ChangeEventHandler } from "react";
 
 interface InputProps {
-  type: "email" | "text";
+  type: "email" | "text" | "phone";
   label: string;
   error: string | undefined;
   touched: boolean | undefined;
@@ -14,7 +14,7 @@ interface InputProps {
 
 const Input = (props: InputProps) => {
   return (
-    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }}>
+    <motion.div>
       <div className="d-flex justify-content-between">
         <label htmlFor={props.id} className="form-label">
           {props.label}

@@ -15,7 +15,7 @@ const Form = (props: Props) => {
 
   return (
     step == props.step && (
-      <AnimatePresence>
+      <AnimatePresence initial={props.step == 1}>
         <motion.div
           className="w-450px h-100 pt-lg-5 pb-lg-3"
           initial={{ opacity: 0, x: 50 }}
