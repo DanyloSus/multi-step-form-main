@@ -1,6 +1,6 @@
 # Multi Step Form Main
 
-[The live site]([https://stwebsite.netlify.app/](https://danylosus.github.io/multi-step-form-main/))
+[The live site](https://danylosus.github.io/multi-step-form-main/)
 
 ## Why is it (site) existing?
 
@@ -10,7 +10,7 @@ I'm looking for a **job** so I wanted to create **something** which can shows wh
 
 ## What is the project
 
-I found a design (with images and a design) of the project on [Front-End Mentor]([https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3/hub](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ)).
+I found a design (with images and a design) of the project on [Front-End Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ).
 I wanted to show my knowledge in libraries of forms with React.
 
 ## What have I used?
